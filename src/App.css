@@ -1,5 +1,25 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu:ital,wght@0,500;1,400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu:wght@300;500&display=swap');
+
+ul, ol {
+  line-height: 1.8;
+  margin: 0;
+  padding-inline-start: 1.5em;
+}
+
+* {
+  
+  /* font-family: 'PT Sans', sans-serif; */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300
+
+}
+
 .App {
   text-align: center;
+
+  
 }
 
 .App-logo {
@@ -27,6 +47,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {

@@ -2,6 +2,32 @@
 /* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu:ital,wght@0,500;1,400&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu:wght@300;500&display=swap');
 
+.readList {
+
+  width: 80em;
+  line-height: 1.8;
+  margin: 0;
+  padding-inline-start: 1.5em;
+
+}
+
+.mainpage .mainpage2  {
+  background: linear-gradient(to right, #1961f2, #bdf0bd 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: wavy;
+}
+
+.mainpage {
+  background-image: url(./public/beach01.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  
+}
+
 ul, ol {
   line-height: 1.8;
   margin: 0;

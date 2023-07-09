@@ -4,47 +4,42 @@ const MkNav = () => {
     return ( 
         
         <>
-            <div className="flex justify-between p-4 text-white ">
+            <div className="flex justify-between ml-6  text-white ">
                 
-                <div className="flex">
+                <div className="flex mt-5">
                 <div className="m-5 text-2xl hover:underline">
-                <Link to={"/"}>Main</Link>
-                
-                </div>
+                <Link to={"/"}>Home</Link>                
+                </div>                
 
-                <div className="m-5 text-2xl hover:underline">
-                <Link to={"/about"}>About</Link>
-                </div>
-
-                <div className="m-5 text-2xl hover:underline">
+                <div className="m-5 ml-7 text-2xl hover:underline">
                 <Link to={"/board/list"}>Board</Link>
                 </div>
 
-                <div className="m-5 text2xl hover:underline">
+                <div className="m-5 ml-7 text-2xl hover:underline">
                 <Link to={"/board/list"}>Menu1</Link>
                 </div>
 
-                <div className="m-5 text-2xl hover:underline">
-                <Link to={"/board/list"}>Menu2</Link>
+                <div className="m-5 ml-7 text-2xl hover:underline">
+                <Link to={"/board/list"}>Q&A</Link>
                 </div>
 
-                <div className="m-5 text-2xl hover:underline">
-                <Link to={"/board/list"}>Menu3</Link>
+                <div className="m-5 ml-7 text-2xl hover:underline">
+                <Link to={"/board/list"}>CS</Link>
                 </div>
 
-                <div className="m-5 text-2xl hover:underline">
-                <Link to={"/board/list"}>Menu4</Link>
+                <div className="m-5 ml-7 text-2xl hover:underline">
+                <Link to={"/about"}>MyPage</Link>
                 </div>
 
 
                 </div>
                 
 
-                <div className="flex">
-                    <button className="border-white w-20 h-10 m-3 border-2 rounded-md hover:bg-white hover:text-sb-02">
+                <div className="flex mr-4">
+                    <button className="border-white w-20 h-10 m-3 mt-7 border-2 rounded-md hover:bg-white hover:text-sb-02">
                         SignIn
                     </button>
-                    <button className="border-white w-20 h-10 m-3 border-2 rounded-md hover:bg-white hover:text-sb-02">
+                    <button className="border-white w-20 h-10 m-3 mt-7 border-2 rounded-md hover:bg-white hover:text-sb-02">
                         Join
                     </button>
 

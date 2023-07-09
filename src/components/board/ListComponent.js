@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { createSearchParams } from "react-router-dom";
 import { getList } from "../../api/boardAPI";
+import ListSearchComponent from "./ListSearchComponent";
+import ListPageComponent from "./common/ListPageComponent";
 
 
 const initState = {
@@ -12,92 +14,77 @@ const initState = {
     pageNums:[],
     page:0,
     size:0,
-    requestDTO:null
+    requestDTO:null,
+    regDate:''
 }
 
-const ListComponent = ({queryObj, movePage}) => {
+const ListComponent = ({queryObj, movePage, moveRead}) => {
 
     const [listData, setListData] = useState(initState)
 
-    //console.log(createSearchParams(queryObj).toString())
-
+    
     useEffect(() => {
 
         getList(queryObj).then(data => {
-            console.log(data)
+            console.log("data-----"+data)
             setListData(data)
         })
 
     }, [queryObj])
 
-    const handleClickPage = (pageNum) => {
-        movePage(pageNum)
-    }
+    // const [board, setBoard] = useState(initState)
+
+    // useEffect(() => {
+    //     getOne(bno).then(data => {
+    //         setBoard(data)
+    //     })
+    // },[bno])
+
+
 
     return ( 
-        <div className="bg-red-100">
-            <div>LIST COMPONENT</div>
+        <div className="">
+            <div>LIST COMPONENT</div>           
             
-            <table className="m-2 ">
+            <table className="min-w-[1280px] ml-auto mr-auto">
 
             <thead>
-                    <tr>
-                        <th className="border-b-2 border-gray-500 m-2">No</th>
-                        <th className="border-b-2 border-gray-500 m-2"
-                        style={{ width: '15%' }}>title</th>
-                        <th className="border-b-2 border-gray-500 m-2"
-                        style={{ width: '85%' }}>ReCount</th>
+                    <tr className="h-12 bg-gray-200">
+                        <th className="border-2 font-bold m-2"
+                        style={{ width: '5%' }}>No</th>
+                        <th className="border-2 font-bold m-2"
+                        style={{ width: '70%' }}>Title</th>
+                        <th className="border-2 font-bold m-2"
+                        style={{ width: '10%' }}>Writer</th>
+                        <th className="border-2 font-bold m-2"
+                        style={{ width: '15%' }}>Reg</th>
                     </tr>
             </thead>
 
             <tbody>
 
-                {listData.dtoList.map(dto =>
+                {listData.dtoList.map(({bno,title,replyCount,writer,regDate}) =>
                 <tr
-                    className="text-center"
-                    key={dto.bno}                                        
+                    className="text-center h-10 bg-amber-50"
+                    key={bno}
+                    onClick={() => moveRead(bno)}                                        
                 >               
-                    <td className="w-10 border-b-2 border-black">{dto.bno}</td>
-                    <td className="w-96 border-b-2 border-black hover:underline hover:cursor-pointer">{dto.title}</td>
-                    <td className="w-10 border-b-2 border-black">{dto.replyCount}</td>
+                    <td className="w-10 border-2 ">{bno}</td>
+                    <td className="w-96 border-2  hover:underline hover:cursor-pointer"
+                    >{title}&nbsp;&nbsp;[{replyCount}]</td>
+                    <td className="w-10 border-2 ">{writer}</td>
+                    <td className="w-10 border-2 ">{regDate}</td>
+                    
                   
                   </tr>
                   )}
 
-            </tbody>       
-                
+            </tbody>               
 
             </table>
+
+            <ListPageComponent movePage={movePage}{...listData}></ListPageComponent>
             
-
-
-
-            <div className="flex m-4 p-2 justify-center bg-sb-03">
-                <ul className="flex ">
-                    
-                    {listData.prev ? <li 
-                    className="m-2 p-2 bg-sb-02 border-2 text-white font-bold 
-                    hover:underline hover:cursor-pointer rounded-md"
-                    onClick={() => handleClickPage(listData.start -1)}
-                    >PREV</li> : <></>}
-                    
-                    {listData.pageNums.map(num => 
-                        <li 
-                        className="m-2 p-2 w-9 text-center bg-sb-02 border-2
-                         text-white font-bold hover:underline hover:cursor-pointer rounded-md"
-                        onClick={() => handleClickPage(num)} 
-                        key={num}
-                        >
-                            {num}
-                        </li>)}
-
-                        {listData.next ? <li 
-                        className="m-2 p-2 bg-sb-02 border-2 text-white font-bold 
-                        hover:underline hover:cursor-pointer rounded-md"
-                        onClick={() => handleClickPage(listData.end +1)}
-                        >NEXT</li> : <></>}
-                </ul>
-            </div>
         </div>
      );
 }

@@ -10,6 +10,7 @@ import LoadingPage from "../pages/LoadingPage";
 const Loding = <LoadingPage></LoadingPage>
 const Board_Index = lazy(() => import("../pages/board/indexPage"))
 const Board_List = lazy(() => import("../pages/board/ListPage"))
+const Board_Read = lazy(() => import("../pages/board/ReadPage"))
 
 
 // nestied routing
@@ -29,8 +30,15 @@ const router = createBrowserRouter([
             {
                 path:"list",
                 element:<Suspense fallback={Loding}><Board_List/></Suspense>
+
+                
+            },
+            {
+                path:"read/:bno",
+                element:<Suspense fallback={Loding}><Board_Read/></Suspense>
             }
-        ]
+
+            ]
     }
 
 ])

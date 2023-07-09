@@ -6,7 +6,12 @@ const MainPage = () => {
     
     return ( 
         <BasicLayout>
-            <h2>Main Page</h2>
+            <div className="mainpage h-[80vh]">
+                <div className="mainpage2  text-7xl text-center pt-48 font-medium">
+                    Welcome
+                </div>
+            
+            </div>
             
         </BasicLayout>
      );

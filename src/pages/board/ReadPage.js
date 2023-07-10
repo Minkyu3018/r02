@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useQueryObj from "../../hooks/useQueryObj";
 import ReadComponent from "../../components/board/read/ReadComponent";
+import ReplyWrapper from "../../components/reply/ReplyWrapper";
 
 
 const ReadPage = () => {
@@ -12,12 +13,14 @@ const ReadPage = () => {
     console.log(queryObj)
 
     return (
-        <div className="">
-            Board Read Page
+        <div className="mt-2">
+            
             <ReadComponent bno={bno}></ReadComponent>
             <button 
-            className="border-2 w-20 mt-4 p-2 rounded-md bg-gray-600 text-xl text-white center float-right"
+            className="border-2 w-20 mt-4 p-2 rounded-md bg-gray-600 text-white float-right"
             onClick={e => moveList()}>List</button>
+            
+            <ReplyWrapper bno={bno}></ReplyWrapper>
         </div>
     );
 }

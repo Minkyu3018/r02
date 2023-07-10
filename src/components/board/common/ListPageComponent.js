@@ -10,7 +10,7 @@ const ListPageComponent = ({ movePage, start, end, prev, next, pageNums, page })
             <ul className="flex ">
 
                 {prev ? <li
-                    className="m-2 p-2 bg-sb-02 border-2 text-white font-bold 
+                    className="m-2 p-2 bg-sb-02 border-2 text-white 
                     hover:underline hover:cursor-pointer rounded-md"
                     onClick={() => handleClickPage(start - 1)}
                 >PREV</li> : <></>}
@@ -27,7 +27,7 @@ const ListPageComponent = ({ movePage, start, end, prev, next, pageNums, page })
                     </li>)}
 
                 {next ? <li
-                    className="m-2 p-2 bg-sb-02 border-2 text-white font-bold 
+                    className="m-2 p-2 bg-sb-02 border-2 text-white  
                         hover:underline hover:cursor-pointer rounded-md"
                     onClick={() => handleClickPage(end + 1)}
                 >NEXT</li> : <></>}

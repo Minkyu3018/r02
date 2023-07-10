@@ -23,11 +23,15 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
     const [listData, setListData] = useState(initState)
 
     
+
+    
     useEffect(() => {
 
         getList(queryObj).then(data => {
             console.log("data-----"+data)
             setListData(data)
+            
+           
         })
 
     }, [queryObj])
@@ -41,10 +45,9 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
     // },[bno])
 
 
-
     return ( 
         <div className="">
-            <div>LIST COMPONENT</div>           
+            <div></div>           
             
             <table className="min-w-[1280px] ml-auto mr-auto">
 
@@ -65,7 +68,7 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
 
                 {listData.dtoList.map(({bno,title,replyCount,writer,regDate}) =>
                 <tr
-                    className="text-center h-10 bg-amber-50"
+                    className="text-center h-10 bg-amber-50 border-"
                     key={bno}
                     onClick={() => moveRead(bno)}                                        
                 >               

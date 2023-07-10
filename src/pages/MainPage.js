@@ -6,7 +6,7 @@ const MainPage = () => {
     
     return ( 
         <BasicLayout>
-            <div className="mainpage h-[80vh]">
+            <div className="mainpage mt-2 h-[80vh]">
                 <div className="mainpage2  text-7xl text-center pt-48 font-medium">
                     Welcome
                 </div>

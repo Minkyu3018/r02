@@ -35,7 +35,7 @@ const ListSearchComponent = ({moveSearch, queryObj, chgSize}) => {
         <div className="m-4 p-4  ">
 
             <button 
-            className="border-2 m-2 p-2 w-16 rounded-md bg-blue-300 text-white"
+            className="border-2 m-2 p-2 w-16 rounded-md bg-blue-700 text-white"
             
             
             > ADD
@@ -78,11 +78,12 @@ const ListSearchComponent = ({moveSearch, queryObj, chgSize}) => {
             
             </button>
 
+            
             <select className="border-2 mt-2 h-10 w-20 float-right"
                 value={chgSize.size}
                 onChange={e => handleSize(e)}                
             >
-                <option value={10}></option>
+                <option value={10}>---</option>
                 <option value={5}>5</option>
                 <option value={10}>10</option>
                 <option value={15}>15</option>

@@ -12,6 +12,12 @@ const Board_Index = lazy(() => import("../pages/board/indexPage"))
 const Board_List = lazy(() => import("../pages/board/ListPage"))
 const Board_Read = lazy(() => import("../pages/board/ReadPage"))
 
+const Products_Index = lazy(() => import("../pages/products/indexPage"))
+const Products_List = lazy(() => import("../pages/products/ListPage"))
+const Products_Register = lazy(() => import("../pages/products/RegisterPage"))
+const Products_Read = lazy(() => import("../pages/products/ReadPage"))
+const Products_Modify = lazy(() => import("../pages/products/ModifyPage"))
+
 
 // nestied routing
 const router = createBrowserRouter([
@@ -37,6 +43,34 @@ const router = createBrowserRouter([
                 path:"read/:bno",
                 element:<Suspense fallback={Loding}><Board_Read/></Suspense>
             }
+
+            ]
+    },
+    {
+        path:"products",
+        element: <Suspense fallback={Loding}><Products_Index/></Suspense>, //outlet 설정 잡기 위해 필요함
+        children: [
+            {
+                path:"list",
+                element:<Suspense fallback={Loding}><Products_List/></Suspense>
+
+                
+            },
+            {
+                path:"register",
+                element:<Suspense fallback={Loding}><Products_Register/></Suspense>
+
+                
+            },
+            {
+                path:"read/:pno",
+                element:<Suspense fallback={Loding}><Products_Read/></Suspense>
+            },
+            {
+                path:"modify/:pno",
+                element:<Suspense fallback={Loding}><Products_Modify/></Suspense>
+            }
+            
 
             ]
     }

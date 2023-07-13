@@ -21,9 +21,6 @@ const initState = {
 const ListComponent = ({queryObj, movePage, moveRead}) => {
 
     const [listData, setListData] = useState(initState)
-
-    
-
     
     useEffect(() => {
 

@@ -16,7 +16,7 @@ const MkNav = () => {
                 </div>
 
                 <div className="m-5 ml-7 text-2xl hover:underline">
-                <Link to={"/board/list"}>Reference</Link>
+                <Link to={"/products/list"}>Products</Link>
                 </div>
 
                 <div className="m-5 ml-7 text-2xl hover:underline">

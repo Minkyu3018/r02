@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { createSearchParams } from "react-router-dom";
 import { getList } from "../../api/productAPI";
 import ListPageComponent from "../board/common/ListPageComponent";
+import { useDispatch } from "react-redux";
+import { bInc } from "../../reducers/basketSlice";
 
 
 
@@ -34,6 +36,15 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
 
     }, [queryObj])
 
+    const rDispatch = useDispatch()
+
+    const handleClickInc = () => {
+        rDispatch(bInc())
+  }
+
+    
+
+
     // const [board, setBoard] = useState(initState)
 
     // useEffect(() => {
@@ -44,7 +55,7 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
 
 
     return ( 
-        <div className="bg-sb-01">
+        <div className="bg-sb-03">
                        
             
             {/* <table className="min-w-[1280px] ml-auto mr-auto">
@@ -84,23 +95,38 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
             </table> */}
 
             <div>
-                <ul className="flex flex-wrap container justify-center">
+                <div className="m-4 text-2xl">상품리스트</div>
+                <ul className="flex flex-wrap container justify-center mt-2">
                     {listData.dtoList.map(dto => 
                         <li
-                        className="w-2/5 h-[300px] bg-sb-03 m-2 p-2 rounded-md shadow-lg"
+                        className="w-1/6 h-[400px] bg-white m-2 p-2 rounded-md shadow-xl"
                         key={dto.pno}
-                        onClick={() => moveRead(dto.pno)} 
+                        
                         >
                         
                         <div>
                             
-                            <div className="text-red-400 font-extrabold">{dto.pno}</div>
-                            <div className="flex justify-center items-center">
+                            <div className="text-red-400 font-extrabold">No. {dto.pno}</div>
+                            <div 
+                            className="flex justify-center items-center"
+                            onClick={() => moveRead(dto.pno)} 
+                            >
                                 <img src={`http://localhost/s_${dto.fname}`} alt='ddd'></img>
                             </div>
+                            
+                            <div className="text-center text-red-400 font-extrabold mt-10">
+                                <div>{dto.pname}</div>
+                                <div>{(dto.price+'').replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'원'}</div>
+                                <div>리뷰 ({dto.reviewCnt}) 평점 ({dto.reviewAvg})</div>
+                                                                                           
+                            </div>
 
-                            <div className="text-center text-red-400 font-extrabold">
-                                {dto.pname}-{dto.price} 리뷰 {dto.reviewCnt} - {dto.reviewAvg}                            
+                            <div>
+                                <div 
+                                className="text-right font-semibold hover:underline hover:cursor-pointer"
+                                onClick={handleClickInc}
+                                >[장바구니 추가]
+                                </div> 
                             </div>
                             
                         </div>
@@ -109,7 +135,11 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
                 </ul>
             </div>
 
+            <div className="">
             <ListPageComponent movePage={movePage}{...listData}></ListPageComponent>
+            </div>
+
+            
             
         </div>
      );

@@ -6,7 +6,7 @@ const ListPageComponent = ({ movePage, start, end, prev, next, pageNums, page })
     }
 
     return (
-        <div className="flex m-4 p-2 justify-center bg-sb-03">
+        <div className="flex m-2 p-2 justify-center bg-sb-03">
             <ul className="flex ">
 
                 {prev ? <li

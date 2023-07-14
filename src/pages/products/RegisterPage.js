@@ -12,10 +12,9 @@ const RegisterPage = () => {
     }
 
     return ( 
-        <div
-            className=""
-        >
-            Products Register Page
+        <div>
+            <div className="text-2xl m-4">상품등록 페이지</div>
+            
             <RegisterComponent moveList={moveList}></RegisterComponent>
         </div>
      );

@@ -59,12 +59,12 @@ const ReadComponent = ({pno, moveModify, moveList}) => {
                     {product.images.map( (fname,idx) => 
                     
                     <li key={idx}>
-                        <img src={`http://localhost/${fname}`} alt='ddd'></img>
+                        <img src={`http://localhost/${fname}`} alt='ddd' className="w-[600px] h-[600px]"></img>
                     </li>)}
                 </ul>
             </div>
 
-            <div>
+            <div className="mb-10">
                 <button 
                 onClick={moveList}
                 className="bg-green-600 rounded-md w-20 p-2 m-2 text-white"

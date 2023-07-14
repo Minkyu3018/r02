@@ -19,7 +19,7 @@ const BasicLayout = ({children}) => {
             </div>
         </div> */}
 
-        <div className="container mx-auto min-w-[1280px] h-[10vh] bg-sb-03">
+        <div className="container mx-auto min-w-[1280px] h-[50vh] bg-sb-03">
 
         <div>
             {children} 

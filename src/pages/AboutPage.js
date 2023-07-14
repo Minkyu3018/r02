@@ -1,13 +1,30 @@
+import CountButtons from "../components/counter/CountButtons";
+import CountDisplay from "../components/counter/CountDisplay";
+import TodoInput from "../components/todo/TodoInput";
+import TodoList from "../components/todo/TodoList";
+import useCustomLogin from "../hooks/useCustomLogin";
 import BasicLayout from "../layouts/BasicLayout";
-import TestLayout from "../layouts/TestLayout";
+
 
 const AboutPage = () => {
 
-    console.log("=============")
+    const {loginInfo} = useCustomLogin()
+    
+    console.log("aboutPage")
     return ( 
         <BasicLayout>
-            <h2 className="text-3xl">My Page... </h2>
-            <h2 className="text-6xl">Comming Soon... </h2>
+
+            <TodoInput></TodoInput>
+
+            <div>
+                mainpage
+                <TodoList></TodoList>
+            </div>
+            
+            <CountDisplay></CountDisplay>
+            <CountButtons></CountButtons>
+
+
             
         </BasicLayout>
      );

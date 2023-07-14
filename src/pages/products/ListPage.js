@@ -14,7 +14,7 @@ const ListPage = () => {
     }
 
     return ( 
-        <div className="">Products List Page
+        <div className="">
             
             <ListComponent
             queryObj={queryObj} 

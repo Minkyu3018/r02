@@ -1,6 +1,10 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu:ital,wght@0,500;1,400&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu:wght@300;500&display=swap');
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .readList {
 
@@ -19,11 +23,13 @@
 }
 
 .mainpage {
-  background-image: url(./public/beach01.jpg);
+  background-image: url(./public/glasses_02.jpg);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
   background-attachment: fixed;
+  width: auto;
+  
 
   
 }
@@ -37,8 +43,11 @@ ul, ol {
 * {
   
   /* font-family: 'PT Sans', sans-serif; */
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 300
+
+  font-family: 'GmarketSansMedium';
+  font-weight: normal;
+  font-style: normal;
+
 
 }
 

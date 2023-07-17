@@ -36,12 +36,12 @@ const MkNav = () => {
                 <Link to={"/about"}>MyPage</Link>
                 </div>
 
-                <div className="m-5 ml-32">
+                {/* <div className="m-5 ml-32">
                     <span
                     className="bg-gray-300 text-gray-500 border-2 p-2 w-12 h-12 text-xl font-extrabold text-center"
                     > Basket : [ {obj.num} ]
                     </span>
-                </div>
+                </div> */}
 
                 
                

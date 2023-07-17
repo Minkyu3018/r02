@@ -1,26 +1,23 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import CartNav from "./CartNav";
 
 
 const LoginNav = () => {
 
-  const {email, signed} = useSelector(state => state.login) // email,signed
+  const {email, nickname} = useSelector(state => state.login) // email,signed
   
-  console.log("LoginNav....." + email, signed)
+  console.log("LoginNav....." + email, nickname)
 
   const todoArr = useSelector(state => state.todo)
 
-  if(signed) {
+  if(email !== '') {
     return (
       <div className="">
-        <div className="mt-2">Member : {email}
-          
-          <button 
-            className="border-white w-22 h-10 mt-1 mb-2 ml-4 p-2 border-2 rounded-md
-             hover:bg-white hover:text-sb-02">
-            SignOut
-          </button>
-          
+        
+        <div className="mt-2">Member : {email} - [{nickname}]
+        
+        <CartNav></CartNav>         
           
         </div>
                

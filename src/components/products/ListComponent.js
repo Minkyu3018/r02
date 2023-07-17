@@ -36,11 +36,11 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
 
     }, [queryObj])
 
-    const rDispatch = useDispatch()
+//     const rDispatch = useDispatch()
 
-    const handleClickInc = () => {
-        rDispatch(bInc())
-  }
+//     const handleClickInc = () => {
+//         rDispatch(bInc())
+//   }
 
     
 
@@ -106,28 +106,32 @@ const ListComponent = ({queryObj, movePage, moveRead}) => {
                         
                         <div>
                             
-                            <div className="text-red-400 font-extrabold">No. {dto.pno}</div>
+                            <div className="text-red-500 font-extrabold">No. {dto.pno}</div>
                             <div 
-                            className="flex justify-center items-center"
+                            className="flex justify-center items-center hover:cursor-pointer"
                             onClick={() => moveRead(dto.pno)} 
                             >
                                 <img src={`http://localhost/s_${dto.fname}`} alt='ddd'></img>
                             </div>
                             
-                            <div className="text-center text-red-400 font-extrabold mt-10">
-                                <div>{dto.pname}</div>
-                                <div>{(dto.price+'').replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'원'}</div>
+                            <div className="text-center text-gray-700 font-extrabold mt-10">
+                                <div 
+                                className="font-bold text-xl hover:cursor-pointer"
+                                onClick={() => moveRead(dto.pno)}
+                                >{dto.pname}
+                                </div>
+                                <div className="text-red-500">{(dto.price+'').replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'원'}</div>
                                 <div>리뷰 ({dto.reviewCnt}) 평점 ({dto.reviewAvg})</div>
                                                                                            
                             </div>
 
-                            <div>
+                            {/* <div>
                                 <div 
                                 className="text-right font-semibold hover:underline hover:cursor-pointer"
                                 onClick={handleClickInc}
                                 >[장바구니 추가]
                                 </div> 
-                            </div>
+                            </div> */}
                             
                         </div>
                         </li>

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "../../api/productAPI";
+import ReplyWrapper from "../reply/ReplyWrapper";
+import useQueryObj from "../../hooks/useQueryObj";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartThunk } from "../../reducers/cartSlice";
 
 const initState = {
     pno:0,
@@ -10,7 +15,10 @@ const initState = {
 }
 
 const ReadComponent = ({pno, moveModify, moveList}) => {
-
+    
+    const {email} = useSelector(state => state.login)
+    const dispatch = useDispatch()
+    
     const [product, setProduct] = useState(initState)
 
     useEffect(() => {
@@ -23,6 +31,9 @@ const ReadComponent = ({pno, moveModify, moveList}) => {
         })
 
     },[pno])
+
+    // const {queryObj} = useQueryObj()
+    // const { bno } = useParams()
 
 
 
@@ -65,16 +76,32 @@ const ReadComponent = ({pno, moveModify, moveList}) => {
             </div>
 
             <div className="mb-10">
+
+                <button
+                className="bg-orange-500 rounded-md w-24 p-2 m-2 text-white"
+                onClick={() => {
+                    dispatch(addCartThunk({email, pno}))
+                }}
+                
+                >AddCart</button>
+
                 <button 
-                onClick={moveList}
                 className="bg-green-600 rounded-md w-20 p-2 m-2 text-white"
+                onClick={moveList}                
                 >List</button>
 
                 <button 
-                onClick={() => moveModify(product.pno)}
                 className="bg-blue-600 rounded-md w-20 p-2 m-2 text-white"
+                onClick={() => moveModify(product.pno)}
+               
                 >Modify</button>
+
+                
+
+                
             </div>
+
+            {/* <ReplyWrapper bno={bno}></ReplyWrapper> */}
 
 
         </div>

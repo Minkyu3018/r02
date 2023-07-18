@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { getCookie, setCookie } from "../util/cookieUtil"
+import { getCookie, removeCookie, setCookie } from "../util/cookieUtil"
 import { postLogin } from "../api/memberAPI"
 
 export const postLoginThunk = createAsyncThunk('postLoginThunk', (params) => {
@@ -21,8 +21,8 @@ const loadCookie = () => {
 
   return loginObj
 
-
 }
+
 
 const initState = {
   email:'',
@@ -36,16 +36,23 @@ const loginSlice = createSlice({
   name:'loginSlice',
   initialState: loadCookie(),
   reducers: {
-    requestLogin: (state, param) => { // param의 공식 name은 action
-      const payload = param.payload
+    requestLogin: (state, action) => { // param의 공식 name은 action
+      const payload = action.payload
       console.log("requestLogin" + payload)  // 리듀서 개발할때 로그먼저 찍어놓고 개발
 
-      const loginObj = {email: payload.email, signed:true}
+      // const loginObj = {email: payload.email, signed:true}
       // JSON.stringify = loginObj를 문자열로 바꿔라
-      setCookie("login", JSON.stringify(loginObj), 1)
+      setCookie("login", JSON.stringify(payload), 1)
 
-      return loginObj
-    }  
+      return payload
+    },
+    logout: (state) => {
+      // const logoutObj = {initState}
+      removeCookie("login")
+
+      return initState
+    }
+       
   },
   extraReducers: (builder) => {
     builder.addCase(postLoginThunk.fulfilled, (state, action) => {
@@ -77,6 +84,10 @@ const loginSlice = createSlice({
 })
 
 // 고정적 사용
-// export const {requestLogin} = loginSlice.actions
+export const {requestLogin} = loginSlice.actions
+
+export const {logout} = loginSlice.actions
+
+
 
 export default loginSlice.reducer

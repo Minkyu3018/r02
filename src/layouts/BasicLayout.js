@@ -4,7 +4,7 @@ import SampleNav from "./nav/SampleNav";
 const BasicLayout = ({children}) => {
     return ( 
         <>
-        <div className="container mx-auto ml-4min-w-[1280px] bg-sb-02">
+        <div className="container mx-auto min-w-[1280px] bg-sb-02">
             
             <div>
                <MkNav>Menu</MkNav> 
@@ -19,7 +19,7 @@ const BasicLayout = ({children}) => {
             </div>
         </div> */}
 
-        <div className="container mx-auto min-w-[1280px] h-[50vh] bg-sb-03">
+        <div className="container mx-auto min-w-[1280px] h-[60vh] bg-sb-03">
 
         <div>
             {children} 

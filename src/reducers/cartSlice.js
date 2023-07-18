@@ -46,7 +46,7 @@ const cartSlice = createSlice({
     .addCase(getCartThunk.fulfilled, (state, action) => {
       console.log("getCartThunk fulfield....")
       console.log(action.payload)
-      state.items = action.payload
+      state.items = action.payload // 카트 리스트 담겨있다
     })
   }
 

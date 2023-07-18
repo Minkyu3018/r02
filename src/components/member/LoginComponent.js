@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { postLoginThunk, requestLogin } from "../../reducers/loginSlice";
 import { Link, useNavigate } from "react-router-dom";
 import useQueryObj from "../../hooks/useQueryObj";
+import KakaoLoginComponent from "./KakaoLoginComponent";
+
 
 const initState = {
-  email:'user00@aaa.con',
+  email:'user00@aaa.com',
   pw:'1111'
 }
 
@@ -23,7 +25,7 @@ const LoginComponent = () => {
 
   
   return ( 
-    <div className="border-2 bg-gray-200 rounded-md w-[600px] h-[550px]">
+    <div className="border-2 bg-gray-200 rounded-md ml-auto mr-auto mt-14 w-[600px] h-[450px]">
 
       {/* 추후 모달로 빼줄것! */}
       <div className="text-3xl bg-red-500">
@@ -36,7 +38,7 @@ const LoginComponent = () => {
         <div>
           <input type="text" name="email" value={loginInfo.email}
           onChange={()=>{}}
-          className="border-2 m-2 rounded-md w-[500px]">            
+          className="border-2 m-2 p-3 rounded-md w-[560px]">            
           </input>
         </div>
         
@@ -46,21 +48,32 @@ const LoginComponent = () => {
         <div>
           <input type="password" name="pw" value={loginInfo.pw}
           onChange={()=>{}}
-          className="border-2 m-2 rounded-md w-[500px]">            
+          className="border-2 m-2 p-3 rounded-md w-[560px]">            
           </input>
         </div>
         
       </div>
-      <div>
-      {/* <Link to="/products/list"> */}
-        <button 
-        className="border-2 bg-blue-300 font-normal mt-1 ml-1 p-1 rounded-md" 
-        onClick={() => dispatch(postLoginThunk(loginInfo))}
-        >
+
+      <div className="h-[20vh]">
+
+        {/* <Link to="/products/list"> */}
+        
+        
+          <button 
+          className="bg-blue-400 font-semibold text-center mt-5 h-14 ml-20 w-[38.5vh] rounded-md" 
+          onClick={() => dispatch(postLoginThunk(loginInfo))}
+          >
           LOGIN
-        </button>
+        </button>       
+        
+          
+          <KakaoLoginComponent></KakaoLoginComponent>
+          
+        
+        
         {/* </Link> */}
       </div>
+
     </div>
    );
 }

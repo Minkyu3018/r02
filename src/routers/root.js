@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import AboutPage from "../pages/AboutPage";
-import ListPage from "../pages/board/ListPage";
-import IndexPage from "../pages/board/indexPage";
+// import ListPage from "../pages/board/ListPage";
+// import IndexPage from "../pages/board/indexPage";
 
 import { Suspense, lazy } from "react";
 import LoadingPage from "../pages/LoadingPage";
 import KakaoRedirectPage from "../pages/member/KakaoRedirectPage";
+import KakaoModifyPage from "../pages/member/KakaoModifyPage";
 
 const Loding = <LoadingPage></LoadingPage>
 const Board_Index = lazy(() => import("../pages/board/indexPage"))
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
     {
         path:"member/kakao",
         element:<KakaoRedirectPage></KakaoRedirectPage>
+    },
+    {
+        path:"member/modify",
+        element:<KakaoModifyPage></KakaoModifyPage>
     },
     {
         path:"board",

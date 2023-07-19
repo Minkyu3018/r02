@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartThunk } from "../../reducers/cartSlice";
 import { logout } from "../../reducers/loginSlice";
 import { useNavigate } from "react-router-dom";
+import cart from "/reactex/r02/src/public/shoppingCart.png"
 
 
 const CartNav = () => {
@@ -32,15 +33,20 @@ const CartNav = () => {
   }
 
   return ( 
-    <div className="flex">
+    <div className=" flex">
 
-      <div 
-      className="text-3xl mt-2 hover:underline hover:cursor-pointer text-yellow-300"
       
-      >Cart {items.length} </div>
+      <div 
+      className="mt-3 hover:underline hover:cursor-pointer text-white inline-flex"> 
+      <img src={cart} className="w-8 h-8" alt="none"/>        
+       </div>
+
+       <div className="inline-flex mt-2 pl-1 -m-2 font-extrabold text-red-600 bg-white h-5 w-5 rounded-full text-center">
+       {items.length}
+       </div>
 
       <button 
-        className="border-white w-22 h-10 mt-1 mb-2 ml-32 p-2 border-2 rounded-md
+        className="border-white w-22 h-10 mb-2 mr-1 ml-auto mt-1 p-2 border-2 rounded-md
         hover:bg-white hover:text-sb-02"
         onClick={handleLogout}
         >

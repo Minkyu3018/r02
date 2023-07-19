@@ -54,17 +54,17 @@ const LoginComponent = () => {
         
       </div>
 
-      <div className="h-[20vh]">
+      <div className="h-[20vh] text-center">
 
         {/* <Link to="/products/list"> */}
         
         
           <button 
-          className="bg-blue-400 font-semibold text-center mt-5 h-14 ml-20 w-[38.5vh] rounded-md" 
-          onClick={() => dispatch(postLoginThunk(loginInfo))}
-          >
-          LOGIN
-        </button>       
+            className="bg-blue-400 font-semibold text-center mt-5 h-14 w-4/6 rounded-md" 
+            onClick={() => dispatch(postLoginThunk(loginInfo))}
+            >
+            LOGIN
+          </button>       
         
           
           <KakaoLoginComponent></KakaoLoginComponent>

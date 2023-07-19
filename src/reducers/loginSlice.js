@@ -64,10 +64,12 @@ const loginSlice = createSlice({
         return
       }
 
-      state.loading = false
-      state.email = email
-      state.nickname = nickname
-      state.admin = admin
+      // state.loading = false
+      // state.email = email
+      // state.nickname = nickname
+      // state.admin = admin
+      state = action.payload
+      
 
       // 쿠키값 보관
       setCookie("login", JSON.stringify(action.payload), 1)
